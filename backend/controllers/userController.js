@@ -44,6 +44,7 @@ const Users = {
           result: true,
           email: findID.email,
           msg: '로그인 성공!',
+          edit: 'pm2성공',
         };
       } else {
         return {
