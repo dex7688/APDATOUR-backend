@@ -3,7 +3,7 @@
 const mongoClient = require('./mongoConnect');
 const _client = mongoClient.connect();
 
-// 회원가입ß
+// 회원가입
 const Users = {
   register: async (registerInfo) => {
     const client = await _client;
