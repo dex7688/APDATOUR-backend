@@ -8,7 +8,7 @@ const db = require('../controllers/userController');
 router.post('/', async (req, res) => {
   const registerInfo = req.body;
   const result = await db.register(registerInfo);
-  res.header('Access-Control-Allow-Origin', '*');
+  // res.header('Access-Control-Allow-Origin', '*');
   res.send(JSON.stringify(result));
 });
 
