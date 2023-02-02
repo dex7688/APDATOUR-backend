@@ -9,33 +9,28 @@ router.post('/write', async (req, res) => {
   const postInfo = req.body;
   console.log(postInfo);
   const result = await db.reviewWrite(postInfo);
-  res.header('Access-Control-Allow-Origin', '*');
   res.send(JSON.stringify(result));
 });
 
 // 모든 게시글 데이터를 받아오는 라우터
 router.get('/getAll', async (req, res) => {
   const allReview = await db.getAllArticles();
-  res.header('Access-Control-Allow-Origin', '*');
   res.send(allReview);
 });
 
 router.get('/:no', async (req, res) => {
   const review = await db.getArticle(req.params.no);
-  res.header('Access-Control-Allow-Origin', '*');
   res.send(review);
 });
 
 // 좋아요 + 1
 router.post('/addLike/:no', async (req, res) => {
   const addLikeResult = await db.addLike(req.params.no);
-  res.header('Access-Control-Allow-Origin', '*');
   res.send(JSON.stringify(addLikeResult));
 });
 // 카운트 + 1
 router.post('/addCount/:no', async (req, res) => {
   const addCountResult = await db.addCount(req.params.no);
-  res.header('Access-Control-Allow-Origin', '*');
   res.send(JSON.stringify(addCountResult));
 });
 
@@ -98,14 +93,12 @@ router.delete('/delete/:id', async (req, res) => {
 // 댓글 추가
 router.post('/comment/add/:reviewNo', async (req, res) => {
   const addCommentResult = await db.commentArticle(parseInt(req.params.reviewNo), req.body);
-  res.header('Access-Control-Allow-Origin', '*');
   res.send(addCommentResult);
 });
 
 // 댓글 삭제
 router.post('/comment/delete/:reviewNo', async (req, res) => {
   const deleteCommentResult = await db.deleteComment(parseInt(req.params.reviewNo), req.body.author, req.body.comment);
-  res.header('Access-Control-Allow-Origin', '*');
   res.send(deleteCommentResult);
 });
 

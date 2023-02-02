@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://www.apda.com'],
+    origin: ['http://localhost:3000', 'https://www.tourapda.com'],
     credentials: true,
   })
 );
@@ -35,6 +35,12 @@ const logoutRouter = require('./routes/logout');
 const signupRouter = require('./routes/register');
 const reviewRouter = require('./routes/review');
 const addLikeRouter = require('./routes/likes');
+
+app.all('/*', function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', ['http://localhost:3000', 'https://www.tourapda.com']);
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+  next();
+});
 
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
