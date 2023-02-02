@@ -15,7 +15,6 @@ router.get('/check', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  // http://localhost:4500/login
   const loginResult = await db.login(req.body);
 
   if (loginResult.result) {

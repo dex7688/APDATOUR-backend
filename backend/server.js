@@ -5,10 +5,10 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 // HTTPS
-// const PORT = 80;
+const PORT = 80;
 
 // local
-const PORT = 4500;
+// const PORT = 4500;
 
 const app = express();
 
