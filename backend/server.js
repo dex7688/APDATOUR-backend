@@ -37,6 +37,9 @@ const signupRouter = require('./routes/register');
 const reviewRouter = require('./routes/review');
 const addLikeRouter = require('./routes/likes');
 
+app.use('/test', (req, res) => {
+  res.send('test 성공');
+});
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/register', signupRouter);
