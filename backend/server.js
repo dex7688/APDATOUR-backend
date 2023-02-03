@@ -18,6 +18,7 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(
   session({
     secret: 'wooseok',
@@ -41,11 +42,12 @@ app.all('/*', function (req, res, next) {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
   next();
 });
-app.use('/login', loginRouter);
-app.use('/logout', logoutRouter);
-app.use('/register', signupRouter);
-app.use('/review', reviewRouter);
-app.use('/addLike', addLikeRouter);
+
+app.use('/api/login', loginRouter);
+app.use('/api/logout', logoutRouter);
+app.use('/api/register', signupRouter);
+app.use('/api/review', reviewRouter);
+app.use('/api/addLike', addLikeRouter);
 
 app.listen(PORT, () => {
   console.log(`데이터 통신 서버가 ${PORT}에서 작동 중입니다!`);
