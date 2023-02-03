@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'https://www.tourapda.com',
+    origin: ['https://www.tourapda.com'],
     credentials: true,
   })
 );
@@ -37,17 +37,17 @@ const signupRouter = require('./routes/register');
 const reviewRouter = require('./routes/review');
 const addLikeRouter = require('./routes/likes');
 
-app.all('/*', function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://www.tourapda.com');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-  next();
-});
+// app.all('/*', function (req, res, next) {
+//   res.header('Access-Control-Allow-Origin', 'https://www.tourapda.com');
+//   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
+//   next();
+// });
 
-app.use('/api/login', loginRouter);
-app.use('/api/logout', logoutRouter);
-app.use('/api/register', signupRouter);
-app.use('/api/review', reviewRouter);
-app.use('/api/addLike', addLikeRouter);
+app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
+app.use('/register', signupRouter);
+app.use('/review', reviewRouter);
+app.use('/addLike', addLikeRouter);
 
 app.listen(PORT, () => {
   console.log(`데이터 통신 서버가 ${PORT}에서 작동 중입니다!`);
