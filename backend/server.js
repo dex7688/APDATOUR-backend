@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
 // HTTPS
-const PORT = 80;
+const PORT = 4000;
 
 // local
 // const PORT = 4500;
@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ['https://www.tourapda.com'],
+    origin: true,
     credentials: true,
   })
 );
@@ -36,12 +36,6 @@ const logoutRouter = require('./routes/logout');
 const signupRouter = require('./routes/register');
 const reviewRouter = require('./routes/review');
 const addLikeRouter = require('./routes/likes');
-
-// app.all('/*', function (req, res, next) {
-//   res.header('Access-Control-Allow-Origin', 'https://www.tourapda.com');
-//   res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-//   next();
-// });
 
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
