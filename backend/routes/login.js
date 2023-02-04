@@ -28,6 +28,7 @@ router.post('/', async (req, res) => {
       httpOnly: true,
       signed: true,
       secure: true,
+      sameSite: 'none',
     });
 
     console.log(req.signedCookies);
