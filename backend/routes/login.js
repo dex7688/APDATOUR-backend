@@ -1,4 +1,5 @@
 // @ts-check
+
 const express = require('express');
 const router = express.Router();
 const db = require('../controllers/userController');
@@ -8,6 +9,7 @@ router.get('/check', (req, res) => {
   const cookies = req.signedCookies;
 
   if (req.signedCookies.user) {
+    console.log(req.signedCookies);
     res.send({ cookie: req.signedCookies.user, session: req.session.login });
   } else {
     res.send('로그인정보없음');
@@ -26,6 +28,8 @@ router.post('/', async (req, res) => {
       httpOnly: true,
       signed: true,
     });
+
+    console.log(req.signedCookies);
 
     res.send(loginResult);
   }
