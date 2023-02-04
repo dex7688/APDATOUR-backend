@@ -14,7 +14,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: true,
+    origin: ['https://silly-lebkuchen-fdefbb.netlify.app'],
     credentials: true,
   })
 );
