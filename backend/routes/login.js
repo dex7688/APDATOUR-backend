@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
       maxAge: 1000 * 60 * 60,
       httpOnly: true,
       signed: true,
+      secure: true,
     });
 
     console.log(req.signedCookies);
